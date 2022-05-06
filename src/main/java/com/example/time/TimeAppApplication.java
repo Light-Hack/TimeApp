@@ -1,5 +1,6 @@
 package com.example.time;
 
+//Imports to to extract the HTML code and extract the result
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
@@ -9,13 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//Imports to creata a GET API
 import com.example.time.model.Details;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpServer;
 
 
 public class TimeAppApplication {
-
+	//Creating GET API to send the results
+	//Created without using any frameworks like Spring or Spark
 	public static void main(String[] args) throws IOException {
 		HttpServer server = HttpServer.create(new InetSocketAddress(8880), 0);
         server.createContext("/api", (exchange -> {
@@ -52,7 +55,9 @@ public class TimeAppApplication {
 		}
 		return newStr;
 	}
-
+	
+	//Getting the HTML code. 
+	//Parsing the HTML code without using any external or internal libraries by just doing simple String manipulation
 	public static List<Details> Response() throws IOException {
 		List<Details> details = new ArrayList<Details>();
 
